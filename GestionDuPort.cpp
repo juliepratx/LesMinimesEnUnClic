@@ -4,11 +4,12 @@
 
 using namespace std;
 
-GestionDuPort::GestionDuPort()
-{
+
+GestionDuPort::GestionDuPort(){
+
+
+
+
 }
 
-GestionDuPort::~GestionDuPort()
-{
-	;
-}
+GestionDuPort::~GestionDuPort() {;}
