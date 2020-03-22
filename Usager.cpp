@@ -12,9 +12,7 @@ Usager::Usager()
 {
 }
 
-Usager::~Usager()
-{
-}
+Usager::~Usager(){;}
 
 void Usager::abonnes(){
 
