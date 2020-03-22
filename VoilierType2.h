@@ -16,7 +16,8 @@ class VoilierType2 :
 
 	public Bateau{
 
-
+	VoilierType2();
+	VoilierType2(int taille);
 
 
 protected:
