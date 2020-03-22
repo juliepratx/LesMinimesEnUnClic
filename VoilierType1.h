@@ -14,6 +14,8 @@ class VoilierType1 :
 
 	public Bateau{
 
+	VoilierType1();
+	VoilierType1(int taille);
 
 protected:
 	int tailleMini = 10;
