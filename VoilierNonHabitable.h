@@ -23,8 +23,9 @@ protected:
 
 	int tailleMaxi = 9; // 9 mètre au maximum
 	int nombreDeCabine = 0;  // pas de cabine
-	char electricite[3] = {'N', 'O', 'N'}; // non par défaut
-	char eau[3] = {'N', 'O', 'N'}; // idem
+	string electricite = "non"; // non par défaut
+	string eau = "non"; // idem
+
 
 
 };
