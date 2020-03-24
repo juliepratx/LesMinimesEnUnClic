@@ -14,20 +14,15 @@ La classe Tarifs contient tout ce qui est en rapport avec les tarifs :
 
 using namespace std;
 
-class Tarifs {
+class Tarifs{
 
-
+	
 public:
 
 	Tarifs();
 	~Tarifs();
 
-	int facturationVoilierNonHabitable(int nbDeJour);
-	int facturationVoilierType1(int nbDeJour);
-	int facturationVoilierType2(int nbDeJour);
-	int facturationCorpsMort(int nbDeJour);
-	bool facturationEau();
-	bool facturationElectricite();
+	
 
 private:
 
