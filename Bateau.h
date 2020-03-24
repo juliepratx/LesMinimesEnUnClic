@@ -1,6 +1,9 @@
 /*
 
-Ceci est la classe bateau.
+Ceci est la classe bateau, elle regroupe :
+- le nombre de place disponible dans le port
+- le prix à payer suivant la taille et le nombre de jour passé au port
+- le supplément de prix pour le raccordement à l'eau et/ou à l'électricité
 
 */
 
@@ -30,6 +33,7 @@ public:
 	int facturationCorpsMort(int nbDeJour);
 	int facturationEau(bool eau);
 	int facturationElectricite(bool elec);
+	int totalAPayer(string typeDeBateau);
 
 private:
 
@@ -45,6 +49,8 @@ private:
 	int sommeVT2 = 0;
 	int sommeEau = 0;
 	int sommeElec = 0;
+	int total = 0;
+
 
 
 
