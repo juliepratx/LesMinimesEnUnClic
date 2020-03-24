@@ -24,6 +24,13 @@ public:
 	int nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corpsMort);
 	void afficheBateau();
 
+	int facturationVoilierNonHabitable(int nbDeJour);
+	int facturationVoilierType1(int nbDeJour);
+	int facturationVoilierType2(int nbDeJour);
+	int facturationCorpsMort(int nbDeJour);
+	int facturationEau(bool eau);
+	int facturationElectricite(bool elec);
+
 private:
 
 	string typeBateau;
@@ -33,6 +40,11 @@ private:
 	int nombreDeCabine = 0;
 	char electricite[3] = {'O', 'U', 'I'}; // oui par défaut
 	char eau[3] = {'O', 'U', 'I'}; // idem
+	int sommeVNH = 0;
+	int sommeVT1 = 0;
+	int sommeVT2 = 0;
+	int sommeEau = 0;
+	int sommeElec = 0;
 
 
 
