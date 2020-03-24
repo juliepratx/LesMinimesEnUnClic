@@ -26,9 +26,7 @@ public:
 
 private:
 
-	int factureVNH();
-	int factureVT1();
-	int factureVT2();
+	
 
 };
 
