@@ -4,6 +4,8 @@ La classe Tarifs contient tout ce qui est en rapport avec les tarifs :
 - le prix pour une nuit sur un corps mort
 - le prix pour le supplément d'eau
 - le prix pour le supplément d'électricité
+
+NON UTILISEE POUR LE MOMENT
 */
 
 #ifndef TARIFS_H_INCLUDED
