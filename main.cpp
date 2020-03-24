@@ -41,6 +41,8 @@ int main(){
     B2.nbDePlaceDispo("Voilier non habitable", "abonné", false);
     cout << endl;
     cout << "** Détail de la facturation **" << endl;
+    B2.facturationVoilierNonHabitable(12);
+    
   
     
 
