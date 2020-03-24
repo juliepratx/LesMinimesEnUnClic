@@ -9,12 +9,15 @@ Sous-classe de la classe Bateau
 #include "Bateau.h"
 
 
+
 class VoilierNonHabitable :
 
 	public Bateau{
 
 	VoilierNonHabitable(); // constructeur par défaut
 	VoilierNonHabitable(int taille);
+
+
 
 protected:
 
