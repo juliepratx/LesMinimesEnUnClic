@@ -20,12 +20,29 @@ PROGRAMME PRINCIPAL
 #include "VoilierType1.h"
 #include "VoilierType2.h"
 #include "Tarifs.h"
+#include <Windows.h>
+
+
 
 using namespace std;
 
 int main(){
-    
 
+    SetConsoleOutputCP(65001);
+
+    cout << "__________________ Test du programme __________________" << endl;
+    cout << endl;
+    cout << endl;
+    cout << "** Quel type de bâteau ? **" << endl;
+    Bateau B2(9);
+    cout << endl;
+    cout << "** Réservation d'un emplacement à quai ou en mer **" << endl;
+    cout << endl;
+    B2.nbDePlaceDispo("Voilier non habitable", "abonné", false);
+    cout << endl;
+    cout << "** Détail de la facturation **" << endl;
+  
+    
 
 
 
