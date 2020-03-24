@@ -22,6 +22,11 @@ Bateau::Bateau() {
 	nombreDeCabine = 0;
 	electricite[0] = '\0';
 	eau[0] = '\0';
+	sommeVNH = 0;
+	sommeVT1 = 0;
+	sommeVT2 = 0;
+	sommeEau = 0;
+	sommeElec = 0;
 
 }
 
@@ -125,6 +130,84 @@ int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corp
 	}
 
 	return placesAFlot, placesVisiteur, placesCorpsMort;
+}
+
+int Bateau::facturationVoilierNonHabitable(int nbDeJour)
+{
+	int sommeVNH = 0;
+	if (nbDeJour == 365) {
+		sommeVNH = 500;
+	}
+	if (nbDeJour < 365) {
+		sommeVNH = nbDeJour * 20;
+	}
+	cout << "*** Frais de location de l'emplacement ***" << endl;
+	cout << "Total à payer : " << sommeVNH << " euros pour les " << nbDeJour << " jours." << endl;
+
+	return sommeVNH;
+}
+
+int Bateau::facturationVoilierType1(int nbDeJour)
+{
+	int sommeVT1 = 0;
+	if (nbDeJour == 365) {
+		sommeVT1 = (500 * (1 + 30 / 100));
+	}
+	if (nbDeJour < 365) {
+		sommeVT1 = ((nbDeJour * 20) * (1 + 30 / 100));
+	}
+	cout << "*** Frais de location de l'emplacement ***" << endl;
+	cout << "Total à payer : " << sommeVT1 << " euros pour les " << nbDeJour << " jours." << endl;
+
+	return sommeVT1;
+}
+
+int Bateau::facturationVoilierType2(int nbDeJour)
+{
+	int sommeVT2 = 0;
+	if (nbDeJour == 365) {
+		sommeVT2 = 500 * (1 + 60 / 100);
+	}
+	if (nbDeJour < 365) {
+		sommeVT2 = nbDeJour * 20 * (1 + 60 / 100);
+	}
+	cout << "*** Frais de location de l'emplacement ***" << endl;
+	cout << "Total à payer : " << sommeVT2 << " euros pour les " << nbDeJour << " jours." << endl;
+
+	return sommeVT2;
+}
+
+int Bateau::facturationCorpsMort(int nbDeJour)
+{
+	int sommePlace = 0;
+	sommePlace = nbDeJour * 20 * (1 - 50 / 100);
+
+	cout << "*** Frais de location de l'emplacement ***" << endl;
+	cout << "Total à payer : " << sommePlace << " euros pour les " << nbDeJour << " nuits." << endl;
+
+	return sommePlace;
+}
+
+int Bateau::facturationEau(bool eau)
+{
+	int sommeEau = 0;
+	if (eau == true) {
+		sommeEau = 5;
+	}
+	cout << "*** Supplément eau ***" << endl;
+	cout << "Frais du racordement à l'eau : " << sommeEau << endl;
+	return sommeEau;
+}
+
+int Bateau::facturationElectricite(bool elec)
+{
+	int sommeElec = 0;
+	if (elec == true) {
+		sommeElec = 5;
+	}
+	cout << "*** Supplément électricité ***" << endl;
+	cout << "Frais du racordement à l'électricité : " << sommeElec << endl;
+	return sommeElec;
 }
 
 void Bateau::afficheBateau()
