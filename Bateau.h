@@ -27,9 +27,9 @@ public:
 	int nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corpsMort);
 	void afficheBateau();
 
-	int facturationVoilierNonHabitable(int nbDeJour);
-	int facturationVoilierType1(int nbDeJour);
-	int facturationVoilierType2(int nbDeJour);
+	int facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur);
+	int facturationVoilierType1(int nbDeJour, string typeDeVisiteur);
+	int facturationVoilierType2(int nbDeJour, string typeDeVisiteur);
 	int facturationCorpsMort(int nbDeJour);
 	int facturationEau(bool eau);
 	int facturationElectricite(bool elec);
