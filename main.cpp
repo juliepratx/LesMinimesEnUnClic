@@ -19,7 +19,6 @@ PROGRAMME PRINCIPAL
 #include "VoilierNonHabitable.h"
 #include "VoilierType1.h"
 #include "VoilierType2.h"
-#include "Tarifs.h"
 #include <Windows.h>
 
 
@@ -30,22 +29,33 @@ int main(){
 
     SetConsoleOutputCP(65001);
 
-    cout << "__________________ Test du programme __________________" << endl;
+    cout << "*******************************************************" << endl;
+    cout << "*                 TEST DU PROGRAMME                   *" << endl;
+    cout << "*******************************************************" << endl;
     cout << endl;
+    cout << endl;
+    cout << "** Nouvel usager **" << endl;
+    Usager U1("Voilier non habitable");
+    U1.abonnes();
     cout << endl;
     cout << "** Quel type de bâteau ? **" << endl;
-    Bateau B2(9);
+    Bateau B1(9);
     cout << endl;
     cout << "** Réservation d'un emplacement à quai ou en mer **" << endl;
     cout << endl;
-    B2.nbDePlaceDispo("Voilier non habitable", "abonné", false);
+    B1.nbDePlaceDispo("Voilier non habitable", "abonné", false);
     cout << endl;
-    cout << "** Détail de la facturation **" << endl;
+    cout << "*******************************************************" << endl;
+    cout << "*                    FACTURE                          *" << endl;
+    cout << "*******************************************************" << endl;
     cout << endl;
-    B2.facturationVoilierNonHabitable(365);
-    B2.facturationEau(false);
-    B2.facturationElectricite(false);
-    B2.totalAPayer("Voilier non habitable");
+    B1.facturationVoilierNonHabitable(30, "abonné");
+    B1.facturationEau(false);
+    B1.facturationElectricite(false);
+    cout << endl;
+    cout << "*******************************************************" << endl;
+    B1.totalAPayer("Voilier non habitable");
+    cout << "*******************************************************" << endl;
   
     
 
