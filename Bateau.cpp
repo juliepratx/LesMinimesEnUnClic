@@ -129,13 +129,16 @@ int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corp
 	return placesAFlot, placesVisiteur, placesCorpsMort;
 }
 
-int Bateau::facturationVoilierNonHabitable(int nbDeJour)
+int Bateau::facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVNH = 0;
-	if (nbDeJour == 365) {
+	if (nbDeJour == 365 && typeDeVisiteur == "abonné") {
 		sommeVNH = 500;
 	}
-	if (nbDeJour < 365) {
+	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
+		sommeVNH = nbDeJour * 1.34; // 500 € pour 1 an ; 41 € pour 1 mois ; 1.34 € par jour (pas précis)
+	}
+	if (nbDeJour < 365 && typeDeVisiteur == "passager") {
 		sommeVNH = nbDeJour * 20;
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
@@ -144,14 +147,14 @@ int Bateau::facturationVoilierNonHabitable(int nbDeJour)
 	return sommeVNH;
 }
 
-int Bateau::facturationVoilierType1(int nbDeJour)
+int Bateau::facturationVoilierType1(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVT1 = 0;
-	if (nbDeJour == 365) {
-		sommeVT1 = (500 * (1 + 30 / 100));
+	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
+		sommeVT1 = (nbDeJour * 1.34) * (1 + 30 / 100);
 	}
-	if (nbDeJour < 365) {
-		sommeVT1 = ((nbDeJour * 20) * (1 + 30 / 100));
+	if (nbDeJour < 365 && typeDeVisiteur == "passager") {
+		sommeVT1 = (nbDeJour * 20) * (1 + 30 / 100);
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
 	cout << "Total à payer : " << sommeVT1 << " € pour les " << nbDeJour << " jours." << endl;
@@ -159,14 +162,14 @@ int Bateau::facturationVoilierType1(int nbDeJour)
 	return sommeVT1;
 }
 
-int Bateau::facturationVoilierType2(int nbDeJour)
+int Bateau::facturationVoilierType2(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVT2 = 0;
-	if (nbDeJour == 365) {
-		sommeVT2 = 500 * (1 + 60 / 100);
+	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
+		sommeVT2 = (nbDeJour * 1.34) * (1 + 60 / 100);
 	}
-	if (nbDeJour < 365) {
-		sommeVT2 = nbDeJour * 20 * (1 + 60 / 100);
+	if (nbDeJour < 365 && typeDeVisiteur == "passager") {
+		sommeVT2 = (nbDeJour * 20) * (1 + 60 / 100);
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
 	cout << "Total à payer : " << sommeVT2 << " € pour les " << nbDeJour << " jours." << endl;
@@ -177,7 +180,7 @@ int Bateau::facturationVoilierType2(int nbDeJour)
 int Bateau::facturationCorpsMort(int nbDeJour)
 {
 	int sommePlace = 0;
-	sommePlace = nbDeJour * 20 * (1 - 50 / 100);
+	sommePlace = (nbDeJour * 20) * (1 - 50 / 100);
 
 	cout << "*** Frais de location de l'emplacement ***" << endl;
 	cout << "Total à payer : " << sommePlace << " euros pour les " << nbDeJour << " nuits." << endl;
@@ -221,7 +224,7 @@ int Bateau::totalAPayer(string typeDeBateau)
 	if (typeBateau == "Voilier type 2") {
 		total = sommeVT2 + sommeEau + sommeElec;
 	}
-	cout << "Total à payer : " << total << " €" << endl;
+	cout << "*                Total à payer : " << total << " €                  *" << endl;
 
 	return total;
 	
