@@ -12,7 +12,6 @@ Il y a les constructeurs de copie de toutes les classes présentes dans le progr
 #define GESTIONDUPORT_H_INCLUDED
 
 
-
 class GestionDuPort{
 
 
