@@ -11,12 +11,12 @@ class Usager{
 public:
 
 	Usager();
-	Usager(string typeDeBateau);
 	~Usager();
 
 
 	void abonnes();
 	void passagers();
+	//void id(string typeDeBateau);
 
 private:
 
