@@ -42,14 +42,15 @@ private:
 	int tailleMini = 0;
 	int tailleMaxi = 0;
 	int nombreDeCabine = 0;
-	char electricite[3] = {'O', 'U', 'I'}; // oui par défaut
-	char eau[3] = {'O', 'U', 'I'}; // idem
+	string electricite = "oui"; // oui par défaut
+	string eau = "oui"; // idem
 	int sommeVNH = 0;
+	//int* sommeVNH, * sommeVT1, * sommeVT2, * sommeEau, * sommeElec;
 	int sommeVT1 = 0;
 	int sommeVT2 = 0;
 	int sommeEau = 0;
 	int sommeElec = 0;
-	int total = 0;
+
 
 
 
