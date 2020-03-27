@@ -30,12 +30,13 @@ int main(){
     SetConsoleOutputCP(65001);
 
     cout << "*******************************************************" << endl;
-    cout << "*                 TEST DU PROGRAMME                   *" << endl;
+    cout << "*             TEST DU PROGRAMME N°1                   *" << endl;
     cout << "*******************************************************" << endl;
     cout << endl;
     cout << endl;
     cout << "** Nouvel usager **" << endl;
-    Usager U1("Voilier non habitable");
+    Usager U1;
+    U1.id;
     U1.abonnes();
     cout << endl;
     cout << "** Quel type de bâteau ? **" << endl;
@@ -56,10 +57,26 @@ int main(){
     cout << "*******************************************************" << endl;
     B1.totalAPayer("Voilier non habitable");
     cout << "*******************************************************" << endl;
-  
-    
+    cout << endl;
+    /*
+    cout << "*******************************************************" << endl;
+    cout << "*             TEST DU PROGRAMME N°2                   *" << endl;
+    cout << "*******************************************************" << endl;
+    cout << endl;
+    cout << endl;
+    cout << "** Nouvel usager **" << endl;
+    Usager U2;
+    U2.abonnes();
+    cout << endl;
+    cout << "** Quel type de bâteau ? **" << endl;
+    Bateau B2(9);
+    cout << endl;
+    cout << "** Réservation d'un emplacement à quai ou en mer **" << endl;
+    cout << endl;
+    B2.nbDePlaceDispo("Voilier non habitable", "abonné", false);
+    cout << endl;
 
-
+    */
 
 
 
