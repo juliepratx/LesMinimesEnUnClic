@@ -20,14 +20,13 @@ Bateau::Bateau() {
 	tailleMini = 0;
 	tailleMaxi = 0;
 	nombreDeCabine = 0;
-	electricite;
-	eau;
+	electricite = "oui";
+	eau = "oui";
 	sommeVNH = 0;
 	sommeVT1 = 0;
 	sommeVT2 = 0;
 	sommeEau = 0;
 	sommeElec = 0;
-	total = 0;
 }
 
 Bateau::Bateau(int taille){
@@ -132,6 +131,8 @@ int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corp
 int Bateau::facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVNH = 0;
+	int* ptr_VNH = &sommeVNH;
+
 	if (nbDeJour == 365 && typeDeVisiteur == "abonné") {
 		sommeVNH = 500;
 	}
@@ -142,7 +143,7 @@ int Bateau::facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur)
 		sommeVNH = nbDeJour * 20;
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
-	cout << "Total à payer : " << sommeVNH << " € pour les " << nbDeJour << " jours" << endl;
+	cout << "Total à payer : " << *ptr_VNH << " € pour les " << nbDeJour << " jours" << endl;
 
 	return sommeVNH;
 }
@@ -150,6 +151,8 @@ int Bateau::facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur)
 int Bateau::facturationVoilierType1(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVT1 = 0;
+	int* ptr_VT1 = &sommeVT1;
+
 	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
 		sommeVT1 = (nbDeJour * 1.34) * (1 + 30 / 100);
 	}
@@ -157,7 +160,7 @@ int Bateau::facturationVoilierType1(int nbDeJour, string typeDeVisiteur)
 		sommeVT1 = (nbDeJour * 20) * (1 + 30 / 100);
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
-	cout << "Total à payer : " << sommeVT1 << " € pour les " << nbDeJour << " jours." << endl;
+	cout << "Total à payer : " << *ptr_VT1 << " € pour les " << nbDeJour << " jours." << endl;
 
 	return sommeVT1;
 }
@@ -165,6 +168,8 @@ int Bateau::facturationVoilierType1(int nbDeJour, string typeDeVisiteur)
 int Bateau::facturationVoilierType2(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVT2 = 0;
+	int* ptr_VT2 = &sommeVT2;
+
 	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
 		sommeVT2 = (nbDeJour * 1.34) * (1 + 60 / 100);
 	}
@@ -172,7 +177,7 @@ int Bateau::facturationVoilierType2(int nbDeJour, string typeDeVisiteur)
 		sommeVT2 = (nbDeJour * 20) * (1 + 60 / 100);
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
-	cout << "Total à payer : " << sommeVT2 << " € pour les " << nbDeJour << " jours." << endl;
+	cout << "Total à payer : " << *ptr_VT2 << " € pour les " << nbDeJour << " jours." << endl;
 
 	return sommeVT2;
 }
@@ -180,10 +185,12 @@ int Bateau::facturationVoilierType2(int nbDeJour, string typeDeVisiteur)
 int Bateau::facturationCorpsMort(int nbDeJour)
 {
 	int sommePlace = 0;
+	int* ptr_CM = &sommePlace;
+
 	sommePlace = (nbDeJour * 20) * (1 - 50 / 100);
 
 	cout << "*** Frais de location de l'emplacement ***" << endl;
-	cout << "Total à payer : " << sommePlace << " euros pour les " << nbDeJour << " nuits." << endl;
+	cout << "Total à payer : " << *ptr_CM << " euros pour les " << nbDeJour << " nuits." << endl;
 
 	return sommePlace;
 }
@@ -191,40 +198,46 @@ int Bateau::facturationCorpsMort(int nbDeJour)
 int Bateau::facturationEau(bool eau)
 {
 	int sommeEau = 0;
+	int* ptr_Eau = &sommeEau;
+
 	if (eau == true) {
 		sommeEau = 5;
 	}
-	cout << "*** Supplément eau ***" << endl;
-	cout << "Frais du racordement à l'eau : " << sommeEau << " €" << endl;
+	///cout << "*** Supplément eau ***" << endl;
+	cout << "Frais du racordement à l'eau : " << *ptr_Eau << " €" << endl;
+
 	return sommeEau;
 }
 
 int Bateau::facturationElectricite(bool elec)
 {
 	int sommeElec = 0;
+	int* ptr_Elec = &sommeElec;
+
 	if (elec == true) {
 		sommeElec = 5;
 	}
-	cout << "*** Supplément électricité ***" << endl;
-	cout << "Frais du racordement à l'électricité : " << sommeElec << " €" << endl;
+	//cout << "*** Supplément électricité ***" << endl;
+	cout << "Frais du racordement à l'électricité : " << *ptr_Elec << " €" << endl;
+
 	return sommeElec;
 }
 
 int Bateau::totalAPayer(string typeDeBateau)
 {
 	int total = 0;
+	int* ptr_total = &total;
 
 	if (typeBateau == "Voilier non habitable") {
-		total = sommeVNH;
+		total = 0;
 	}
-	
 	if (typeBateau == "Voilier type 1") {
 		total = sommeVT1 + sommeEau + sommeElec;
 	}
 	if (typeBateau == "Voilier type 2") {
 		total = sommeVT2 + sommeEau + sommeElec;
 	}
-	cout << "*                Total à payer : " << total << " €                  *" << endl;
+	cout << "*                Total à payer : " << *ptr_total << " €                  *" << endl;
 
 	return total;
 	
