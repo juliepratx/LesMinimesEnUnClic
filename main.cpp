@@ -36,7 +36,6 @@ int main(){
     cout << endl;
     cout << "** Nouvel usager **" << endl;
     Usager U1;
-    U1.id;
     U1.abonnes();
     cout << endl;
     cout << "** Quel type de bâteau ? **" << endl;
