@@ -66,65 +66,64 @@ int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corp
 	int* ptr_placesCorpsMort = &placesCorpsMort;
 
 	if (typeDeBateau == "Voilier non habitable" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		*ptr_placesAFlot -= 1;
+		placesAFlot -= 1;
 		cout << "Type d'emplacement : place à flot" << endl;
 		cout << "Statut : abonné" << endl;
-		cout << "Il reste maintenant " << *ptr_placesAFlot << " places à flot disponibles !" << endl;
-		if (*ptr_placesAFlot == 0) {
+		cout << "Il reste maintenant " << placesAFlot << " places à flot disponibles !" << endl;
+		if (placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
-	return placesAFlot;
 	if (typeDeBateau == "Voilier non habitable" && typeDeVisiteur == "passager" && corpsMort == false) {
-		*ptr_placesVisiteur -= 1;
+		placesVisiteur -= 1;
 		cout << "Type d'emplacement : une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
-		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (*ptr_placesVisiteur == 0) {
+		cout << "Il reste maintenant " << placesVisiteur << " places visiteurs disponibles !" << endl;
+		if (placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 1" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		*ptr_placesAFlot -= 1;
+		placesAFlot -= 1;
 		cout << "Type d'emplacement : sur une place à flot." << endl;
 		cout << "Statut : abonné" << endl;
 		cout << "Il reste maintenant " << *ptr_placesAFlot << " places disponibles !" << endl;
-		if (*ptr_placesAFlot == 0) {
+		if (placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 1" && typeDeVisiteur == "passager" && corpsMort == false) {
-		*ptr_placesVisiteur -= 1;
+		placesVisiteur -= 1;
 		cout << "Type d'emplacement : sur une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
 		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (*ptr_placesVisiteur == 0) {
+		if (placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 2" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		*ptr_placesAFlot -= 1;
+		placesAFlot -= 1;
 		cout << "Type d'emplacement : sur une place à flot." << endl;
 		cout << "Statut : abonné" << endl;
 		cout << "Il reste maintenant " << *ptr_placesAFlot << " places disponibles !" << endl;
-		if (*ptr_placesAFlot == 0) {
+		if (placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 2" && typeDeVisiteur == "passager" && corpsMort == false) {
-		*ptr_placesVisiteur -= 1;
+		placesVisiteur -= 1;
 		cout << "Type d'emplacement : sur une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
 		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (*ptr_placesVisiteur == 0) {
+		if (placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (corpsMort == true) {
-		*ptr_placesCorpsMort -= 1;
+		placesCorpsMort -= 1;
 		cout << "Type d'emplacement : sur un corps mort." << endl;
 		cout << "Il reste maintenant " << *ptr_placesCorpsMort << " corps mort disponibles !" << endl;
-		if (*ptr_placesCorpsMort == 0) {
+		if (placesCorpsMort == 0) {
 			cout << "Aucun corps disponible !" << endl;
 		}
 	}
