@@ -15,6 +15,7 @@ Usager::Usager(){
 	string idVNH = "VNH", idVT1 = "VT1", idVT2 = "VT2";
 	int id_VNH = 0; int id_VT1 = 0; int id_VT2 = 0;
 		
+	
 }
 /*
 Usager::Usager(const Usager& unUsager, string typeDeBateau)
@@ -39,20 +40,16 @@ Usager::Usager(const Usager& unUsager, string typeDeBateau)
 
 void Usager::afficheID(string typeDeBateau)
 {
-	int* ptr_id_VNH = &id_VNH;
-	int* ptr_id_VT1 = &id_VT1;
-	int* ptr_id_VT2 = &id_VT2;
-
 	if (typeDeBateau == "Voilier non habitable") {
-		cout << "ID de l'usager : " << id_VNH << endl;
+		cout << "ID VNH : " << idVNH << endl;
 		cout << "Type de bâteau : " << typeDeBateau << endl;
 	}
 	if (typeDeBateau == "Voilier type 1") {
-		cout << "ID de l'usager : " << idVT1 << endl;
+		cout << "ID VT1 : " << idVT1 << endl;
 		cout << "Type de bâteau : " << typeDeBateau << endl;
 	}
 	if (typeDeBateau == "Voilier type 2") {
-		cout << "ID de l'usager : " << idVT2 << endl;
+		cout << "ID VT2 : " << idVT2 << endl;
 		cout << "Type de bâteau : " << typeDeBateau << endl;
 	}
 	
@@ -78,9 +75,9 @@ void Usager::id(string typeDeBateau)
 	int* ptr_id_VT1 = &id_VT1;
 	int* ptr_id_VT2 = &id_VT2;
 
-	if (typeDeBateau == "Voilier non habitabe") {
-		id_VNH += 1;
-		cout << "Identifiant : " << idVNH << " " << id_VNH << endl;
+	if (typeDeBateau == "Voilier non habitable") {
+		*ptr_id_VNH += 1;
+		cout << "Identifiant : " << idVNH << " " << *ptr_id_VNH << endl;
 	}
 	if (typeDeBateau == "Voilier type 1") {
 		*ptr_id_VT1 += 1;
