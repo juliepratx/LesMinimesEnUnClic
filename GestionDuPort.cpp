@@ -17,7 +17,13 @@ GestionDuPort::~GestionDuPort() {
 void GestionDuPort::afficheListeClient()
 {
 
+	// affichage du tableau des usagers du port 
+	// non disponible
+
 	cout << "Liste des clients :" << endl;
+	cout << "ID VNH : " << endl;
+	cout << "ID VT1 : " << endl;
+	cout << "ID VT2 : " << endl;
 
 
 }
