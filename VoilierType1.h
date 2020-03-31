@@ -16,6 +16,7 @@ class VoilierType1 :
 
 	VoilierType1();
 	VoilierType1(int taille);
+	~VoilierType1();
 
 protected:
 	int tailleMini = 10;
@@ -23,12 +24,6 @@ protected:
 	int nombreDeCabine;
 	string electricite = "oui"; // oui par défaut
 	string eau = "oui"; // idem
-	//char electricite[3] = {'O', 'U', 'I'}; 
-	//char eau[3] = {'O', 'U', 'I'}; // idem
-
-
-
-
 
 };
 
