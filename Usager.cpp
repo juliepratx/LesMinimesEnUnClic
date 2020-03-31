@@ -66,6 +66,7 @@ void Usager::passagers(){
 	cout << "Je suis de passage !" << endl;
 }
 
+/*
 
 void Usager::id(string typeDeBateau)
 {
@@ -89,7 +90,7 @@ void Usager::id(string typeDeBateau)
 	}
 }
 
-
+*/
 
 
 Usager::~Usager() { 
