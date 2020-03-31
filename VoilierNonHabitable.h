@@ -16,6 +16,7 @@ class VoilierNonHabitable :
 
 	VoilierNonHabitable(); // constructeur par défaut
 	VoilierNonHabitable(int taille);
+	~VoilierNonHabitable(); // destructeur
 
 
 
