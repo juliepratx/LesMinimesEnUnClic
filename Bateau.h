@@ -45,7 +45,6 @@ private:
 	string electricite = "oui"; // oui par défaut
 	string eau = "oui"; // idem
 	int sommeVNH = 0;
-	//int* sommeVNH, * sommeVT1, * sommeVT2, * sommeEau, * sommeElec;
 	int sommeVT1 = 0;
 	int sommeVT2 = 0;
 	int sommeEau = 0;
