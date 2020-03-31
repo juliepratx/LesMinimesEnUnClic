@@ -59,68 +59,72 @@ Bateau::Bateau(int taille){
 int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corpsMort)
 {
 	int placesAFlot = 4'700;
+	int* ptr_placesAFlot = &placesAFlot;
 	int placesVisiteur = 300;
+	int* ptr_placesVisiteur = &placesVisiteur;
 	int placesCorpsMort = 30;
+	int* ptr_placesCorpsMort = &placesCorpsMort;
 
 	if (typeDeBateau == "Voilier non habitable" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		placesAFlot--;
+		*ptr_placesAFlot -= 1;
 		cout << "Type d'emplacement : place à flot" << endl;
 		cout << "Statut : abonné" << endl;
-		cout << "Il reste maintenant " << placesAFlot << " places à flot disponibles !" << endl;
-		if (placesAFlot == 0) {
+		cout << "Il reste maintenant " << *ptr_placesAFlot << " places à flot disponibles !" << endl;
+		if (*ptr_placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
+	return placesAFlot;
 	if (typeDeBateau == "Voilier non habitable" && typeDeVisiteur == "passager" && corpsMort == false) {
-		placesVisiteur--;
+		*ptr_placesVisiteur -= 1;
 		cout << "Type d'emplacement : une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
-		cout << "Il reste maintenant " << placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (placesVisiteur == 0) {
+		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
+		if (*ptr_placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 1" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		placesAFlot--;
+		*ptr_placesAFlot -= 1;
 		cout << "Type d'emplacement : sur une place à flot." << endl;
 		cout << "Statut : abonné" << endl;
-		cout << "Il reste maintenant " << placesAFlot << " places disponibles !" << endl;
-		if (placesAFlot == 0) {
+		cout << "Il reste maintenant " << *ptr_placesAFlot << " places disponibles !" << endl;
+		if (*ptr_placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 1" && typeDeVisiteur == "passager" && corpsMort == false) {
-		placesVisiteur--;
+		*ptr_placesVisiteur -= 1;
 		cout << "Type d'emplacement : sur une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
-		cout << "Il reste maintenant " << placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (placesVisiteur == 0) {
+		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
+		if (*ptr_placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 2" && typeDeVisiteur == "abonné" && corpsMort == false) {
-		placesAFlot--;
+		*ptr_placesAFlot -= 1;
 		cout << "Type d'emplacement : sur une place à flot." << endl;
 		cout << "Statut : abonné" << endl;
-		cout << "Il reste maintenant " << placesAFlot << " places disponibles !" << endl;
-		if (placesAFlot == 0) {
+		cout << "Il reste maintenant " << *ptr_placesAFlot << " places disponibles !" << endl;
+		if (*ptr_placesAFlot == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (typeDeBateau == "Voilier type 2" && typeDeVisiteur == "passager" && corpsMort == false) {
-		placesVisiteur--;
+		*ptr_placesVisiteur -= 1;
 		cout << "Type d'emplacement : sur une place visiteur." << endl;
 		cout << "Statut : passager" << endl;
-		cout << "Il reste maintenant " << placesVisiteur << " places visiteurs disponibles !" << endl;
-		if (placesVisiteur == 0) {
+		cout << "Il reste maintenant " << *ptr_placesVisiteur << " places visiteurs disponibles !" << endl;
+		if (*ptr_placesVisiteur == 0) {
 			cout << "Aucune place disponible !" << endl;
 		}
 	}
 	if (corpsMort == true) {
-		placesCorpsMort--;
+		*ptr_placesCorpsMort -= 1;
 		cout << "Type d'emplacement : sur un corps mort." << endl;
-		cout << "Il reste maintenant " << placesCorpsMort << " corps mort disponibles !" << endl;
-		if (placesCorpsMort == 0) {
+		cout << "Il reste maintenant " << *ptr_placesCorpsMort << " corps mort disponibles !" << endl;
+		if (*ptr_placesCorpsMort == 0) {
 			cout << "Aucun corps disponible !" << endl;
 		}
 	}
@@ -131,16 +135,16 @@ int Bateau::nbDePlaceDispo(string typeDeBateau, string typeDeVisiteur, bool corp
 int Bateau::facturationVoilierNonHabitable(int nbDeJour, string typeDeVisiteur)
 {
 	int sommeVNH = 0;
-	int* ptr_VNH = &sommeVNH;
+	int *ptr_VNH = &sommeVNH;
 
 	if (nbDeJour == 365 && typeDeVisiteur == "abonné") {
-		sommeVNH = 500;
+		*ptr_VNH = 500;
 	}
 	if (nbDeJour < 365 && typeDeVisiteur == "abonné") {
-		sommeVNH = nbDeJour * 1.34; // 500 € pour 1 an ; 41 € pour 1 mois ; 1.34 € par jour (pas précis)
+		*ptr_VNH = nbDeJour * 1.34; // 500 € pour 1 an ; 41 € pour 1 mois ; 1.34 € par jour (pas précis)
 	}
 	if (nbDeJour < 365 && typeDeVisiteur == "passager") {
-		sommeVNH = nbDeJour * 20;
+		*ptr_VNH = nbDeJour * 20;
 	}
 	cout << "*** Frais de location de l'emplacement ***" << endl;
 	cout << "Total à payer : " << *ptr_VNH << " € pour les " << nbDeJour << " jours" << endl;
@@ -229,7 +233,7 @@ int Bateau::totalAPayer(string typeDeBateau)
 	int* ptr_total = &total;
 
 	if (typeBateau == "Voilier non habitable") {
-		total = 0;
+		total = sommeVNH;
 	}
 	if (typeBateau == "Voilier type 1") {
 		total = sommeVT1 + sommeEau + sommeElec;
@@ -237,7 +241,7 @@ int Bateau::totalAPayer(string typeDeBateau)
 	if (typeBateau == "Voilier type 2") {
 		total = sommeVT2 + sommeEau + sommeElec;
 	}
-	cout << "*                Total à payer : " << *ptr_total << " €                  *" << endl;
+	cout << "*                Total à payer : " << total << " €                  *" << endl;
 
 	return total;
 	
@@ -249,6 +253,7 @@ void Bateau::afficheBateau()
 	cout << "Type de bâteau : " << typeBateau << endl;
 }
 
+Bateau::~Bateau() { 
 
-
-Bateau::~Bateau() { ; }
+	;
+}
